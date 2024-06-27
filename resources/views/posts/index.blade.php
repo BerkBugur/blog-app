@@ -37,20 +37,27 @@
                             </span>
                             <input
                                 class="w-40 ml-1 bg-transparent focus:outline-none focus:border-none focus:ring-0 outline-none border-none text-xs text-gray-800 placeholder:text-gray-400"
-                                type="text" placeholder="Search Yelo">
+                                type="text" placeholder="Search Posts">
                         </div>
                     </div>
                 </div>
+                @auth()
+
 
                 <div id="recommended-topics-box">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Recommended Topics</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Share post with us <br /> {{$post->author->name}}</h3>
                     <div class="topics flex flex-wrap justify-start">
-                        <a href="#" class="bg-red-600
+                        <a href="#" class="bg-yellow-500
                                         text-white
-                                        rounded-xl px-3 py-1 text-base">
-                            Tailwind</a>
+                                        rounded-xl px-3 py-1 text-base"style="
+                                        color: white;
+                                        border-radius: 8px;
+                                        padding: 12px 24px;
+                                        font-size: 22px;">
+                            Create Blog</a>
                     </div>
                 </div>
+                @endauth
             </div>
         </div>
     </main>
