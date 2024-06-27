@@ -14,12 +14,16 @@
 
                     </div>
                     <div class="py-4">
-                        @foreach ($posts as $post )
-                        <x-posts.post-item :post="$post" />
-                        @endforeach
-                        <div class="my-3">
-                            {{ $posts->links()}}
-                        </div>
+                        @if ($posts->isEmpty())
+                            <p>There are no posts yet.</p>
+                        @else
+                            @foreach ($posts as $post)
+                                <x-posts.post-item :post="$post" />
+                            @endforeach
+                            <div class="my-3">
+                                {{ $posts->links() }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -45,7 +49,7 @@
 
 
                 <div id="recommended-topics-box">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Share post with us <br /> {{$post->author->name}}</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Share post with us</h3>
                     <div class="topics flex flex-wrap justify-start">
                         <a href="http://127.0.0.1:8000/create" class="bg-yellow-500
                                         text-white
