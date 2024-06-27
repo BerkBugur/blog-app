@@ -15,7 +15,7 @@ class Post extends Model
     protected $cast =['published_at' => 'datetime'];
 
     public function author(){
-        return $this->belongsTo(User::class,'id');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function scopePublished($query)

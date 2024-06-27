@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $latestPost = Cache::remember('latestPost',60*24,function(){
+        $latestPost = Cache::remember('latestPost',5,function(){
             return Post::published()->latest('published_at')->get()->take(3);
         });
 
